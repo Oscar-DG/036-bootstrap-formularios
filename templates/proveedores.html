@@ -14,24 +14,33 @@
 
             <div class="card-body">
 
-                <form method="POST">
+                <form method="POST" id="formProveedor">
 
                     <div class="mb-3">
                         <label for="empresa" class="form-label">Empresa</label>
-                        <input type="text" class="form-control" id="empresa"
-                               name="empresa" required>
+                        <input type="text"
+                               class="form-control"
+                               id="empresa"
+                               name="empresa"
+                               required>
                     </div>
 
                     <div class="mb-3">
                         <label for="contacto" class="form-label">Contacto</label>
-                        <input type="text" class="form-control" id="contacto"
-                               name="contacto" required>
+                        <input type="text"
+                               class="form-control"
+                               id="contacto"
+                               name="contacto"
+                               required>
                     </div>
 
                     <div class="mb-3">
                         <label for="nit" class="form-label">NIT</label>
-                        <input type="text" class="form-control" id="nit"
-                               name="nit" required>
+                        <input type="text"
+                               class="form-control"
+                               id="nit"
+                               name="nit"
+                               required>
                     </div>
 
                     <div class="mb-3">
@@ -39,23 +48,50 @@
                             Tipo de producto o servicio
                         </label>
 
-                        <select class="form-select" id="tipo" name="tipo" required>
-                            <option value="" selected disabled>Seleccione una opción</option>
-                            <option value="Papelería">Papelería</option>
-                            <option value="Tecnología">Tecnología</option>
-                            <option value="Mantenimiento">Mantenimiento</option>
-                            <option value="Transporte">Transporte</option>
-                            <option value="Otros">Otros</option>
+                        <select class="form-select"
+                                id="tipo"
+                                name="tipo"
+                                required>
+
+                            <option value="" selected disabled>
+                                Seleccione una opción
+                            </option>
+
+                            <option value="Papelería">
+                                Papelería
+                            </option>
+
+                            <option value="Tecnología">
+                                Tecnología
+                            </option>
+
+                            <option value="Mantenimiento">
+                                Mantenimiento
+                            </option>
+
+                            <option value="Transporte">
+                                Transporte
+                            </option>
+
+                            <option value="Otros">
+                                Otros
+                            </option>
+
                         </select>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Condición de pago</label>
+                        <label class="form-label">
+                            Condición de pago
+                        </label>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio"
-                                   name="pago" id="contado"
-                                   value="Contado" required>
+                            <input class="form-check-input"
+                                   type="radio"
+                                   name="pago"
+                                   id="contado"
+                                   value="Contado"
+                                   required>
 
                             <label class="form-check-label" for="contado">
                                 Contado
@@ -63,8 +99,10 @@
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio"
-                                   name="pago" id="credito"
+                            <input class="form-check-input"
+                                   type="radio"
+                                   name="pago"
+                                   id="credito"
                                    value="Crédito">
 
                             <label class="form-check-label" for="credito">
@@ -74,15 +112,20 @@
                     </div>
 
                     <div class="mb-3 form-check">
-                        <input class="form-check-input" type="checkbox"
-                               id="activo" name="activo">
+                        <input class="form-check-input"
+                               type="checkbox"
+                               id="activo"
+                               name="activo">
 
                         <label class="form-check-label" for="activo">
                             Proveedor activo
                         </label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">
+                    <button type="button"
+                            class="btn btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalConfirmacion">
                         Registrar proveedor
                     </button>
 
@@ -92,6 +135,56 @@
         </div>
 
     </div>
+</div>
+
+
+<!-- Modal de confirmación -->
+<div class="modal fade"
+     id="modalConfirmacion"
+     tabindex="-1"
+     aria-labelledby="modalConfirmacionLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalConfirmacionLabel">
+                    Confirmar registro
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Cerrar">
+                </button>
+            </div>
+
+            <div class="modal-body">
+                ¿Está seguro de que desea registrar este proveedor?
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <button type="submit"
+                        form="formProveedor"
+                        class="btn btn-primary">
+                    Sí, registrar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
 {% endblock %}
